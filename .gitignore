@@ -1,0 +1,18 @@
+# colcon build output
+build/
+install/
+log/
+
+# Python virtual environments and caches
+*_env/
+__pycache__/
+*.pyc
+
+# Editor files (VS Code's C++ index alone is ~1 GB)
+.vscode/
+
+# Onshape export zips (their contents are already unpacked in models/)
+*.zip
+
+# Public Unitree repo; clone it separately if needed
+src/kinematics/robot_models/unitree_ros/

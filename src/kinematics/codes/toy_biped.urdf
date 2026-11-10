@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+<robot name="toy_biped">
+  <link name="BODY">
+    <visual>
+      <origin xyz="0 0 0.30" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.10 0.30 0.50"/>
+      </geometry>
+      <material name="body_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="RLEG_J0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J0" type="revolute">
+    <parent link="BODY"/>
+    <child link="RLEG_J0"/>
+    <origin xyz="0 -0.10 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J1" type="revolute">
+    <parent link="RLEG_J0"/>
+    <child link="RLEG_J1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J2">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J2" type="revolute">
+    <parent link="RLEG_J1"/>
+    <child link="RLEG_J2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J3">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J3" type="revolute">
+    <parent link="RLEG_J2"/>
+    <child link="RLEG_J3"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="3.1416" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J4">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J4" type="revolute">
+    <parent link="RLEG_J3"/>
+    <child link="RLEG_J4"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.05 0 -0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.20 0.10 0.02"/>
+      </geometry>
+      <material name="foot_blue">
+        <color rgba="0.32 0.62 0.90 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J5" type="revolute">
+    <parent link="RLEG_J4"/>
+    <child link="RLEG_J5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J0" type="revolute">
+    <parent link="BODY"/>
+    <child link="LLEG_J0"/>
+    <origin xyz="0 0.10 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J1" type="revolute">
+    <parent link="LLEG_J0"/>
+    <child link="LLEG_J1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J2">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J2" type="revolute">
+    <parent link="LLEG_J1"/>
+    <child link="LLEG_J2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J3">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J3" type="revolute">
+    <parent link="LLEG_J2"/>
+    <child link="LLEG_J3"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="3.1416" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J4">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J4" type="revolute">
+    <parent link="LLEG_J3"/>
+    <child link="LLEG_J4"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.05 0 -0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.20 0.10 0.02"/>
+      </geometry>
+      <material name="foot_blue">
+        <color rgba="0.32 0.62 0.90 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J5" type="revolute">
+    <parent link="LLEG_J4"/>
+    <child link="LLEG_J5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+</robot>
+<?xml version="1.0"?>
+<robot name="toy_biped">
+  <link name="BODY">
+    <visual>
+      <origin xyz="0 0 0.30" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.10 0.30 0.50"/>
+      </geometry>
+      <material name="body_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="RLEG_J0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J0" type="revolute">
+    <parent link="BODY"/>
+    <child link="RLEG_J0"/>
+    <origin xyz="0 -0.10 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J1" type="revolute">
+    <parent link="RLEG_J0"/>
+    <child link="RLEG_J1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J2">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J2" type="revolute">
+    <parent link="RLEG_J1"/>
+    <child link="RLEG_J2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J3">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J3" type="revolute">
+    <parent link="RLEG_J2"/>
+    <child link="RLEG_J3"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="3.1416" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J4">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J4" type="revolute">
+    <parent link="RLEG_J3"/>
+    <child link="RLEG_J4"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="RLEG_J5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.05 0 -0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.20 0.10 0.02"/>
+      </geometry>
+      <material name="foot_blue">
+        <color rgba="0.32 0.62 0.90 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="RLEG_J5" type="revolute">
+    <parent link="RLEG_J4"/>
+    <child link="RLEG_J5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J0">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J0" type="revolute">
+    <parent link="BODY"/>
+    <child link="LLEG_J0"/>
+    <origin xyz="0 0.10 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J1">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J1" type="revolute">
+    <parent link="LLEG_J0"/>
+    <child link="LLEG_J1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J2">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J2" type="revolute">
+    <parent link="LLEG_J1"/>
+    <child link="LLEG_J2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J3">
+    <visual>
+      <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.012" length="0.30"/>
+      </geometry>
+      <material name="link_blue">
+        <color rgba="0.20 0.45 0.85 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J3" type="revolute">
+    <parent link="LLEG_J2"/>
+    <child link="LLEG_J3"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0" upper="3.1416" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J4">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J4" type="revolute">
+    <parent link="LLEG_J3"/>
+    <child link="LLEG_J4"/>
+    <origin xyz="0 0 -0.30" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+
+  <link name="LLEG_J5">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.030" length="0.080"/>
+      </geometry>
+      <material name="joint_blue">
+        <color rgba="0.10 0.30 0.70 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0.05 0 -0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.20 0.10 0.02"/>
+      </geometry>
+      <material name="foot_blue">
+        <color rgba="0.32 0.62 0.90 1.0"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="LLEG_J5" type="revolute">
+    <parent link="LLEG_J4"/>
+    <child link="LLEG_J5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.0472" upper="1.0472" effort="20" velocity="2"/>
+  </joint>
+</robot>
